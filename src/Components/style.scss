@@ -1,0 +1,21 @@
+.container{
+    display: grid;
+    grid-template-columns: repeat(5,1fr);
+    gap: 20px;
+    height:50vh;
+    width:50vw;
+    
+    > .item-container{
+        
+        > .button-container{
+            display:flex;
+            align-items: center;
+            justify-content: center;
+        }
+        >img{
+            height:250px;
+            width:250px;
+        }
+    }
+}
+
