@@ -1,0 +1,27 @@
+.cart-container{
+  
+
+    > .item-container{
+        
+        display:grid;
+        grid-template-columns: repeat(3,1fr);
+        height:50vh;
+        width:50vw;
+        border-radius: 5px;
+        border:2px solid beige;
+        margin:5px;
+        text-align: center;
+
+        > img{
+            height:250px;
+            width:250px;
+        }
+    }
+
+    > .price-container{
+        position: absolute;
+        top:0;
+        right:0;
+        margin:5px;
+    }
+}

@@ -1,19 +1,21 @@
 import React, { useEffect } from 'react';
+import {useNavigate} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
-import { fetchUsers } from '../features/userSlice';
-import {increment,decrement} from '../features/quantitySlice';
-import './style.scss'
+import { fetchUsers } from '../../features/userSlice';
+import { addtocart } from '../../features/userSlice';
+import '../Product/style.scss'
 export const Productpage = () => {
-   
+    const navigate = useNavigate()
     const productdata = useSelector((state)=>state.user.users)
-    const productCount = useSelector((state)=>state.quantity.count)
     const dispatch = useDispatch()
     
     useEffect(()=>{
         dispatch(fetchUsers())
     },[])
-    console.log(productdata)
+    
     return(
+        <div>
+            <button className='cartbutton' onClick={()=>navigate('/cart')}>Cart</button>
         <div className='container'>
             {
                 productdata.map(product=>(
@@ -22,14 +24,13 @@ export const Productpage = () => {
                         <h3>Price:{product.price}</h3>
                         <p>{product.description}</p>
                         <div className='button-container'>
-                            <button onClick={()=>dispatch(increment())}>+</button>
-                            <p>Qty:{productCount}</p>
-                            <button onClick={()=>dispatch(decrement())}>-</button>
+                            <button onClick={()=>dispatch(addtocart(product))}>Add to cart</button>
                         </div>
                         
                     </div>
                 ))
             }
+        </div>
         </div>
     )
 } 

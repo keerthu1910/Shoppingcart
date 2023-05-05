@@ -6,6 +6,7 @@ import axios from 'axios';
 const initialState = {
     loading:false,
     users:[],
+    items:[],
     error:''
 }
 
@@ -18,14 +19,18 @@ export const fetchUsers = createAsyncThunk('user/fetchUsers',async()=>{
 const userSlice = createSlice({
     name:'user',
     initialState,
-    reducers:{},
+    reducers:{
+        addtocart:(state,action)=>{
+            state.items.push(action.payload)
+        }
+    },
     extraReducers(builder){
         builder.addCase(fetchUsers.pending,state=>{
             state.loading = true
         })
         builder.addCase(fetchUsers.fulfilled,(state,action)=>{
             state.loading=false
-            state.users = action.payload
+            state.users = action.payload.map(obj=>({...obj,qty:1}))
             state.error = ''
         })
         builder.addCase(fetchUsers.rejected,(state,action)=>{
@@ -38,3 +43,4 @@ const userSlice = createSlice({
 
 
 export default userSlice.reducer
+export const {addtocart} = userSlice.actions
