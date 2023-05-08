@@ -1,15 +1,17 @@
 import React,{useEffect, useState} from 'react'
 import { useSelector, useDispatch} from 'react-redux'
-import { increaseCount } from '../../features/cartSlice'
+import { increaseCount, decreaseCount } from '../../features/cartSlice'
 import '../Cart/style.scss'
 
 export const Cartdata = () => {
     const [price,setPrice] = useState(0)
-    const cartdata = useSelector(state=>state.user.items)
+    const cartdata = useSelector((state)=>state.cart.items)
+
+    
     const dispatch = useDispatch()
     console.log(cartdata)
     const getPrice = () => {
-        let value = cartdata.map(item=>item.price)
+        let value = cartdata.map(item=>Math.floor(item.price * item.qty))
         setPrice(value.reduce((a,b)=>a+b,0))
     }
 
@@ -45,8 +47,8 @@ export const Cartdata = () => {
         }
     }
     useEffect(()=>{
-        getPrice()
-    },[])
+       getPrice()
+    },[cartdata])
     
     return(
         <div className='cart-container'>
@@ -55,12 +57,11 @@ export const Cartdata = () => {
                     
                     <div key={cartitem.id} className='item-container'>
                         <img src={cartitem.image} alt={cartitem.title} />
-                        <h3>Price:{cartitem.price}</h3> 
+                        <h3>Price:{Math.floor(cartitem.price * cartitem.qty)}</h3> 
                         <div>
                         <button onClick={()=>dispatch(increaseCount(cartitem.id))}>+</button>
-                        {/* <button onClick={()=>console.log(cartitem.id)}>+</button> */}
                         <p>qty:{cartitem.qty}</p>
-                        <button>-</button>
+                        <button onClick={()=>dispatch(decreaseCount(cartitem.id))}>-</button>
                         </div>
                     </div>
                 ))
