@@ -2,7 +2,7 @@ import React, { useEffect } from 'react';
 import {useNavigate} from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux';
 import { fetchUsers } from '../../features/userSlice';
-import { addtocart } from '../../features/userSlice';
+import { addtocart } from '../../features/cartSlice';
 import '../Product/style.scss'
 export const Productpage = () => {
     const navigate = useNavigate()

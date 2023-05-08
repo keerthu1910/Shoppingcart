@@ -6,7 +6,6 @@ import axios from 'axios';
 const initialState = {
     loading:false,
     users:[],
-    items:[],
     error:''
 }
 
@@ -43,4 +42,4 @@ const userSlice = createSlice({
 
 
 export default userSlice.reducer
-export const {addtocart} = userSlice.actions
+// export const {addtocart} = userSlice.actions
