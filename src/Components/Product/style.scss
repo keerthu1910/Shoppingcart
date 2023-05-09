@@ -1,23 +1,118 @@
-.container{
-    display: grid;
-    grid-template-columns: repeat(5,1fr);
-    gap: 20px;
-    height:50vh;
-    width:50vw;
-
-   
-    
-    > .item-container{
-        
-        > .button-container{
-            display:flex;
-            align-items: center;
-            justify-content: center;
-        }
-        >img{
-            height:250px;
-            width:250px;
-        }
-    }
+body {
+  background-color: white;
 }
 
+.product-container {
+  > .navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 5px;
+    margin: 5px;
+    padding: 5px;
+    > p {
+      font-size: 2rem;
+      font-weight: bold;
+    }
+    > button {
+      background-color: black;
+      color: white;
+      text-transform: uppercase;
+      border: none;
+      border-radius: 5px;
+      height: 25px;
+      width: 50px;
+      // margin-right:5px;
+    }
+  }
+
+  > .ad-container {
+    top: 30px;
+    margin: auto;
+    background-color:  #F4F6F5;;
+    border-radius: 20px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    padding: 20px;
+    height: 545px;
+    width: 1170px;
+    > .tagline-container {
+      > .white-bg {
+        width:350px;
+        background: #ffffff;
+        transform: rotate(-2deg);
+      }
+      > .yellow-bg {
+        width:350px;
+        background: #ebd96b;
+        transform: rotate(-2deg);
+      }
+      > p {
+        text-transform: uppercase;
+        font-weight: bolder;
+        font-size: 3rem;
+      }
+    }
+
+    > .img-container {
+      img {
+        height: 500px;
+        width: 500px;
+      }
+    }
+  }
+
+  > .brand-container {
+    margin: 20px 0;
+    background-color: #ebd96b;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 5px;
+    > .brands {
+      padding: 5px;
+      > img {
+        width: 45px;
+        height: 30px;
+      }
+    }
+  }
+  > .container {
+    margin: auto;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 20px;
+    // height:600px;
+    // width:1200px;
+
+    > .item-container {
+      > .button-container {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+      > img {
+        height: 250px;
+        width: 250px;
+      }
+    }
+
+    > .pagination {
+      display: flex;
+      justify-content: center;
+
+      > span {
+        padding: 10px;
+        background-color: white;
+        margin: 5px;
+        border-radius: 25px;
+        cursor: pointer;
+      }
+
+      > .pagination-disabled {
+        opacity: 0;
+      }
+    }
+  }
+}
