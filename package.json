@@ -17,7 +17,6 @@
     "sass": "^1.62.1",
     "web-vitals": "^2.1.4"
   },
-  "homepage": "https://keerthu1910.github.io/shoppingcarttoolkit",
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
