@@ -1,5 +1,7 @@
 body {
   background-color: white;
+  margin: 0;
+  padding: 0;
 }
 
 .product-container {
@@ -7,12 +9,10 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-
-    border-radius: 5px;
-    margin: 5px;
-    padding: 5px;
+    background-color: #ebd96b;
+    padding: 10px;
     > p {
-      font-size: 2rem;
+      font-size: 3rem;
       font-weight: bold;
     }
     > button {
@@ -37,6 +37,19 @@ body {
     padding: 20px;
     height: 545px;
     width: 1170px;
+    @media only screen and (max-width:1024px) and (min-width:768px){
+      height: inherit;
+      width: inherit;
+    }
+    @media only screen and (max-width:767px) and (min-width:426px){
+      height: inherit;
+      width: inherit;
+  }
+    @media only screen and (max-width:425px) and (min-width:320px){
+      width:inherit;
+      height: inherit;
+      display: flex;
+    }
     > .tagline-container {
       > .white-bg {
         width:350px;
@@ -47,11 +60,17 @@ body {
         width:350px;
         background: #ebd96b;
         transform: rotate(-2deg);
+        @media only screen and (max-width:425px) and (min-width:320px){
+          width:240px
+        }
       }
       > p {
         text-transform: uppercase;
         font-weight: bolder;
         font-size: 3rem;
+        @media only screen and (max-width:425px) and (min-width:320px){
+          font-size: xx-large;
+        }
       }
     }
 
@@ -59,7 +78,16 @@ body {
       img {
         height: 500px;
         width: 500px;
+        @media only screen and (max-width:1024px) and (min-width:768px){
+          height: 420px;
+          width: 420px;
+        }
+       
       }
+      @media only screen and (max-width:425px) and (min-width:320px){
+        display:none;
+      }
+     
     }
   }
 
@@ -83,10 +111,16 @@ body {
     display: grid;
     grid-template-columns: repeat(3, 1fr);
     gap: 20px;
-    // height:600px;
-    // width:1200px;
+    @media only screen and (max-width:425px) and (min-width:320px){
+      grid-template-columns: repeat(1,1fr);
+    }
 
     > .item-container {
+      display:flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
       > .button-container {
         display: flex;
         align-items: center;
@@ -95,24 +129,30 @@ body {
       > img {
         height: 250px;
         width: 250px;
+        @media only screen and (max-width:767px) and (min-width:426px){
+          height: 200px;
+          width: 150px;
+        }
       }
     }
 
-    > .pagination {
-      display: flex;
-      justify-content: center;
+  
+  }
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    > span {
+      padding: 10px;
+      background-color: white;
+      margin: 5px;
+      border-radius: 25px;
+      cursor: pointer;
+    }
 
-      > span {
-        padding: 10px;
-        background-color: white;
-        margin: 5px;
-        border-radius: 25px;
-        cursor: pointer;
-      }
-
-      > .pagination-disabled {
-        opacity: 0;
-      }
+    > .pagination-disabled {
+      opacity: 0;
     }
   }
 }

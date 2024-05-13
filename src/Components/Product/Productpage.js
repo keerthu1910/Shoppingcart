@@ -29,7 +29,7 @@ export const Productpage = () => {
   return (
     <div className="product-container">
       <div className="navbar">
-        <p>Shopping cart</p>
+        <p>E-Cart</p>
         <button className="cartbutton" onClick={() => navigate("/cart")}>
           Cart
         </button>
@@ -54,11 +54,11 @@ export const Productpage = () => {
           }
       </div>
       <div className="container">
-        {productdata.slice(page*4 - 4,page*4).map((product) => (
+        {productdata.slice(page*3 - 3,page*3).map((product) => (
           <div className="item-container" key={product.id}>
             <img src={product.image} alt={product.title} />
             <h3>Price:{product.price}</h3>
-            <p>{product.description}</p>
+            <p>{product.title}</p>
             <div className="button-container">
               <button onClick={() => dispatch(addtocart(product))}>
                 Add to cart
@@ -66,7 +66,9 @@ export const Productpage = () => {
             </div>
           </div>
         ))}
-        {
+       
+      </div>
+      {
           <div className="pagination">
               <span className = {page === 1 ? "pagination-disabled":""} onClick={()=>handlePage(page-1)}>Prev</span>
               {
@@ -77,7 +79,6 @@ export const Productpage = () => {
               <span className={page < productdata.length /4 ? '':'pagination-disabled'} onClick={()=>handlePage(page+1)}>Next</span>
           </div>
         }
-      </div>
     </div>
   );
 };
