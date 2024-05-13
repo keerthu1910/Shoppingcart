@@ -48,7 +48,7 @@ export const Cartdata = () => {
     }
     useEffect(()=>{
        getPrice()
-    },[cartdata])
+    })
     
     return(
         <>

@@ -24,7 +24,7 @@ export const Productpage = () => {
     }
   useEffect(() => {
     dispatch(fetchUsers());
-  }, []);
+  });
 
   return (
     <div className="product-container">
