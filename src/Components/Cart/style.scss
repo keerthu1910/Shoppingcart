@@ -1,27 +1,98 @@
-.cart-container{
-  
+h1{
+    margin: 30px;
+}
 
-    > .item-container{
-        
-        display:grid;
-        grid-template-columns: repeat(3,1fr);
-        height:50vh;
-        width:50vw;
-        border-radius: 5px;
-        border:2px solid beige;
-        margin:5px;
+.container{
+    display: flex;
+.cart-container{
+    margin:20px;
+    .cartitem-container{
+        border:1px solid black;
+        margin: 3px;
+        height:40vh;
+        width:40vw;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         text-align: center;
+        justify-content: center;
+        @media only screen and (max-width:767px) and (min-width:426px){
+            height: 60vh;
+            width: 50vw;
+            font-size: smaller;
+        }
+        @media only screen and (max-width:1024px) and (min-width:768px){
+            height: 60vh;
+            font-size: smaller;
+        }
+        @media only screen and (min-width:1441px) and (max-width:2560px){
+            height: 60vh;
+            width: 20vw;
+            font-size: smaller;
+        }
+        @media only screen and (max-width:1440px) and (min-width:1025px){
+            height: 60vh;
+            width: 30vw;
+            font-size: smaller;
+        }
+        @media only screen and (max-width:425px) and (min-width:320px){
+            font-size: 50%;
+            padding: 10px;
+        }
+        
+ > .item-container{
+        display:flex;
+        flex-direction: column;
+        // gap: 20px;
+        align-items: center;
+        justify-content: center;
+        border-radius: 5px;
+        margin:20px;
+        text-align: center;
+        @media only screen and (max-width:425px) and (min-width:320px){
+            gap: 0;
+        }
+        .qty-container{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            button{
+                height: 20px;
+                width: 40px;
+                text-align: center;
+                background-color:  #ebd96b;
+                border: none;
+            }
+            p{
+                font-weight:bolder;
+            }
+           
+        }
 
         > img{
-            height:250px;
-            width:250px;
+            height:150px;
+            width:150px;
+            @media only screen and (max-width:425px) and (min-width:320px){
+                height: 50px;
+                width: 50px;
+              }
         }
     }
+}
 
-    > .price-container{
-        position: absolute;
-        top:0;
-        right:0;
-        margin:5px;
+}
+.price-container{
+    display: flex;
+    flex-direction: column;
+    @media (max-width:425px) and (min-width:320px){
+        font-size: smaller;
     }
+    button{
+        background-color: #ebd96b;
+        border: none;
+        padding: 10px;
+    }
+ }
 }
