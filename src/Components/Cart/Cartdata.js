@@ -51,25 +51,34 @@ export const Cartdata = () => {
     },[cartdata])
     
     return(
+        <>
+        <h1>Cart items</h1>
+        <div className='container'>
         <div className='cart-container'>
             {
                 cartdata.map(cartitem => (
-                    
+                    <div className='cartitem-container'>
+                    <h3>{cartitem.title}</h3>
                     <div key={cartitem.id} className='item-container'>
+                       
                         <img src={cartitem.image} alt={cartitem.title} />
                         <h3>Price:{Math.floor(cartitem.price * cartitem.qty)}</h3> 
-                        <div>
+                        <div className='qty-container'>
                         <button onClick={()=>dispatch(increaseCount(cartitem.id))}>+</button>
-                        <p>qty:{cartitem.qty}</p>
+                        <p>Qty:{cartitem.qty}</p>
                         <button onClick={()=>dispatch(decreaseCount(cartitem.id))}>-</button>
                         </div>
                     </div>
+                    </div>
                 ))
             }
-            <div className='price-container'>
-                <h2>Total price : {price}</h2>
-                <button onClick={handleSubmit}>Proceed to payment</button>
-            </div>
+           
         </div>
+         <div className='price-container'>
+            <h2>Total price : {price}</h2>
+            <button onClick={handleSubmit}>Proceed to payment</button>
+        </div>
+     </div>
+     </>
     )
 }
